@@ -1,7 +1,7 @@
 import java.time.LocalDate;
 public class Main {
     public static void main(String[] args) {
-        int year = 2018;
+        int year = 2017;
         task1(year);
         String oS= "iOS";
         int yearOfIssue = LocalDate.now().getYear();
