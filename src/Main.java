@@ -7,43 +7,40 @@ public class Main {
         int yearOfIssue = LocalDate.now().getYear();
         task2(oS, yearOfIssue);
         short deliveryDistance = 95;
-        task3(deliveryDistance);
+        int per = task3(deliveryDistance);
+        System.out.println("Потребуется дней " + per);
     }
-    public static void task1(int year){
-        if (year%4==0 || (year%100!=0 && year%400==0)){
+    private static void task1(int year){
+        if (year%4==0 && year%100!=0 || year%400==0){
             System.out.println(year + " високосный год");
         }
         else{
             System.out.println(year + " не високосный год");
         }
     }
-    public static void task2(String oS, int yearOfIssue){
-        if (oS.equals("iOS")){
-            if (yearOfIssue<2015){
+    private static void task2(String oS, int yearOfIssue){
+        if (oS.equals("iOS") && yearOfIssue<2015){
                 System.out.println("Установите облегченную версию приложения для iOS по ссылке");
-            }
-            else{
+        }
+        else if(oS.equals("iOS") && yearOfIssue>=2015){
                 System.out.println("Установите обычную версию приложения для iOS по ссылке");
             }
-        }
-        else{
-            if (yearOfIssue<2015){
-                System.out.println("Установите облегченную версию приложения для Android по ссылке");
-            }
-            else{
+        if (oS.equals("Android") && yearOfIssue<2015){
+                System.out.println("Установите облегченную версию приложения для Android по ссылке");}
+        else if(oS.equals("Android") && yearOfIssue>=2015){
                 System.out.println("Установите обычную версию приложения для Android по ссылке");
             }
-        }
     }
-    public static void task3(short deliveryDistance) {
+    private static int task3(short deliveryDistance) {
         int day = 1;
         if (deliveryDistance < 20) {
-            System.out.println("Потребуется дней: " + day);
+            day=day;
         } else if (deliveryDistance >= 20 || deliveryDistance < 60) {
-            System.out.println("Потребуется дней: " + (day + 1));
+            day=day + 1;
         } else {
-            System.out.println("Потребуется дней: " + (day + 2));
+            day=day + 2;
         }
 
+        return day;
     }
 }
